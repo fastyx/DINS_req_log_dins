@@ -1,0 +1,42 @@
+{
+    "serviceName": "req_log_dins",
+    "SYSTEM": {
+        "dbTables": {
+            "reqLogDins": "dins.req_log_dins"
+        },
+        "dbFunctions": {},
+        "dbConnections": {
+            "emdppDb": {
+                "hosts": [
+                    "127.0.0.1",
+                    "192.168.9.74",
+                    "192.168.8.74"
+                ],
+                "port": "5432",
+                "database": "postgres",
+                "user": "fastyx",
+                "password": "fender"
+            }
+        },
+        "dbConfig": {
+            "max": 3,
+            "idleTimeoutMillis": 30000,
+            "connectionTimeoutMillis": 2000
+        },
+        "restConfig": {
+            "reqLogDinsService": {
+                "host": "localhost",
+                "port": "3063"
+            }
+        },
+        "queueProperties": {
+            "nodes": "192.168.8.121:9092, 192.168.8.97:9092",
+            "options": {
+                "topic": "outumd",
+                "autoCommit": true,
+                "groupId": "req_log_dins_cons",
+                "consumerId": "req_log_dins_cons"
+            }
+        }
+    }
+}
